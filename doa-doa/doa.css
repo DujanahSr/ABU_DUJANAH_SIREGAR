@@ -1,0 +1,434 @@
+/* Menyembunyikan scrollbar di elemen dengan webkit */
+::-webkit-scrollbar {
+  display: none;
+}
+/* untuk menghilagkan padding dan margin saat pertama kali tampil(default) */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Gaya dasar untuk body halaman */
+body {
+  font-family: cursive; /* jenis font */
+  /* bg color */
+  background: rgb(252,219,113); 
+  background: linear-gradient(90deg, rgba(252,219,113,1) 0%, rgba(255,141,82,1) 100%); 
+
+  /* untuk menghilangkan draggable pada semuanya */
+  --user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Gaya header */
+header {
+  background: rgb(252,219,113);
+  background: linear-gradient(90deg, rgba(252,219,113,1) 0%, rgba(255,141,82,1) 100%);
+  border-radius: 8px;
+  color: #e9e8e8;
+  padding: 0.5rem;
+  display: flex; /* Menggunakan Flexbox untuk header */
+  justify-content: space-between; /* Mengatur item header di sekeliling dengan jarak yang merata */
+  align-items: center; /* vertikal ke tengah */
+  box-shadow: 0 3px 4px rgb(0, 0, 0); /* Menambahkan bayangan pada header */
+  margin-bottom: 30px;
+  position: sticky; /* Membuat header tetap berada di bagian atas saat discroll */
+  top: 0; /* agar berada di atas*/ 
+  z-index: 9999; /* agar diatas elemen lainnya*/
+}
+
+
+/* Gaya logo */
+.logo img {
+  width: 11.5rem; /* lebar logo*/
+  margin-left: -15px; /* posisi logo */
+  pointer-events: none; /* agar gambar tidak bisa di copy */
+}
+
+/* Gaya navigasi */
+nav ul {
+  list-style: none; /* menghilangkan style li nya */
+  display: flex; /* flexbox untuk navigasi*/
+}
+
+/* gaya a pada nav a */
+nav ul li a {
+  color: #000;
+  display: inline-block;
+  font-size: 1.3rem;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 25px;
+  position: relative;
+  text-shadow: 2px 2px 4px rgb(255, 255, 255);
+}
+
+
+/* Efek hover pada tautan navigasi */
+nav ul li a:hover {
+  transform: scale(1.18);
+}
+
+/* Menambahkan garis bawah pada menu saat di-hover */
+nav ul li a::after {
+  content: '';
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid black;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+/* ketika di hover */
+nav ul li a:hover::after {
+  transform: scaleX(0.5);
+}
+
+/* Tampilan menu samping */
+.tampilan-menu {
+  width: 184px; /* Lebar panel menu samping */
+  display: none; /* Secara default, menu disembunyikan */
+  right: 0;
+  height: 55%; /* Tinggi panel menu samping */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background: rgb(252,219,113);
+  background: linear-gradient(90deg, rgba(252,219,113,1) 0%, rgba(255,141,82,1) 100%);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+/* Gaya menu di dalam panel */
+.menu {
+  display: grid;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+/* Gaya menu yang aktif */
+.menu a.active {
+  background-color: #40514E;
+  color: black;
+}
+
+/* Gaya link di dalam panel menu samping */
+.tampilan-menu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+
+/* ketika di hover */
+.tampilan-menu a:hover {
+  color: #424242;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/*  Tombol untuk menutup panel menu samping */
+.tampilan-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  font-size: 30px;
+}
+
+/* Tombol untuk membuka panel menu samping */
+.open-btn {
+  display: none;
+}
+.open-btn {
+  font-size: 22px;
+  cursor: pointer;
+  background: rgb(252,219,113);
+  background: linear-gradient(90deg, rgba(252,219,113,1) 0%, rgba(255,141,82,1) 100%);
+  border-radius: 8px;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+}
+
+.open-btn:hover {
+  border-bottom-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* Pengaturan daftar doa */
+#list-doa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Image doa */
+.image-doa {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 6px;
+}
+.image-doa img {
+  width: 100%;
+}
+
+/* search doa */
+/* Pengaturan kotak pencarian */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.search-container i {
+  position: absolute;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.search-container input {
+  padding: 15px;
+  border: 2px solid black;
+  border-radius: 30px;
+  background: rgb(252,219,113);
+  background: linear-gradient(90deg, rgba(252,219,113,1) 0%, rgba(255,141,82,1) 100%);
+  font-size: 18px;
+  width: 100%; /*Lebar input search */
+}
+
+/* untuk placeholder di dalam inputan */
+.search-container input::placeholder {
+  color: #000000;
+  font-style: italic;
+  font-size: 18px;
+}
+
+
+
+/* bagian container doa */
+.container {
+  border-radius: 8px;
+  background: rgb(252,219,113);
+  background: linear-gradient(90deg, rgba(252,219,113,1) 0%, rgba(255,141,82,1) 100%);
+  box-shadow: 0 3px 6px rgb(0, 0, 0);
+  padding: 20px;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+.container h3 {
+  font-size: 26px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.container .arabic-text{
+  font-size: 30px;
+  text-align: right;
+  margin-bottom: 20px;
+}
+.container .latin-text{
+  font-size: 16px;
+  text-align: justify;
+  margin-bottom: 20px;
+  font-style: italic;
+  font-weight: bold;
+}
+.container .arti-text{
+  font-size: 17px;
+  text-align: justify;
+  margin-bottom: 24px;
+}
+
+/* Pengaturan container salin dan kirim */
+.copy-send-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 25px;
+}
+
+
+/* Gaya untuk ikon panah */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgb(252,219,113);
+  background: linear-gradient(90deg, rgba(252,219,113,1) 0%, rgba(255,141,82,1) 100%);
+  color: #000000;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgb(243, 243, 243);
+  cursor: pointer;
+  z-index: 1000;
+  display: none; /* Sembunyikan ikon panah secara default */
+  transition: opacity 0.3s ease;
+}
+.scroll-to-top:hover {
+  transform: scale(1.1);
+}
+
+.scroll-to-top i {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Tampilkan ikon panah ketika halaman digulir ke bawah */
+.scroll-to-top.show {
+  display: block;
+}
+
+
+/* Footer */
+
+.footer-bottom {
+  text-align: center;
+  font-size: 17px;
+  padding: 25px 0px;
+  margin-top: 25px;
+  box-shadow: 0 0 8px rgb(0, 0, 0);
+  /* Fallback warna */
+  background: rgb(252,219,113);
+  background: linear-gradient(90deg, rgba(252,219,113,1) 0%, rgba(255,141,82,1) 100%);
+
+}
+
+/* responsive */
+
+/* untuk nav menu */
+@media (max-width: 768px) {
+  .container {
+    max-width: 80vw;
+    margin: 10px;
+  }
+  .scroll-to-top {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px;
+  }
+
+  .scroll-to-top i {
+    font-size: 20px;
+  }
+}
+@media (max-width:587px) {
+  .ul-nav {
+    display: none;
+    /* Sembunyikan navigasi default */
+  }
+
+  .open-btn {
+    display: block;
+    /* Tampilkan tombol buka */
+  }
+
+  .tampilan-menu {
+    display: flex;
+    /* Tampilkan tampilan menu */
+  }
+}
+
+@media(max-width:414px) {
+  .tampilan-menu {
+    height: 41.2%;
+  }
+  .scroll-to-top {
+    bottom: 12px;
+    right: 12px;
+    padding: 6px;
+  }
+
+  .scroll-to-top i {
+    font-size: 18px;
+  }
+}
+
+@media (max-width:390px) {
+  .tampilan-menu {
+    height: 45.2%;
+  }
+}
+
+@media (max-width:376px) {
+  .tampilan-menu {
+    height: 56.2%;
+  }
+}
+
+
+/*  ukuran layar sangat kecil */
+@media (max-width: 320px) {
+  /* Mengurangi ukuran logo untuk layar kecil */
+  .logo img {
+    width: 8rem;
+  }
+  /* Mengurangi lebar kotak pencarian */
+  .search-container {
+    max-width: 280px; 
+  }
+  /* Mengurangi ukuran font di input pencarian */
+  .search-container input {
+    font-size: 16px; 
+  }
+  /* Mengurangi lebar panel menu samping */
+  .tampilan-menu {
+    width: 160px;
+  }
+  /* Mengurangi ukuran font di menu samping */
+  .tampilan-menu a {
+    font-size: 20px; 
+  }
+  .container {
+    /* Mengurangi padding di container doa */
+    padding: 15px; 
+  }
+  .container h3 {
+    /* Mengurangi ukuran font judul dalam container doa */
+    font-size: 22px; 
+  }
+  /* Mengurangi ukuran font teks Arab */
+  .container .arabic-text {
+    font-size: 26px; 
+  }
+  /* Mengurangi ukuran font teks Latin */
+  .container .latin-text {
+    font-size: 14px; 
+  }
+   /* Mengurangi ukuran font teks arti */
+  .container .arti-text {
+    font-size: 15px;
+  }
+  /* untuk icon top */
+  .scroll-to-top {
+    bottom: 8px;
+    right: 8px;
+    padding: 4px;
+  }
+  .scroll-to-top i {
+    font-size: 20px;
+  }
+}

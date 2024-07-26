@@ -1,0 +1,409 @@
+/* Variabel global */
+:root {
+  --bg-color: #f9f9f9; /* Warna latar belakang umum */
+  --text-color: #000000; /* Warna teks umum */
+  --header-bg-color: linear-gradient(60deg, #29323c 0%, #485563 100%); /* Gradien latar belakang header */
+  --header-text-color: #f1f1f1; /* Warna teks di header */
+  --button-bg-color: linear-gradient(60deg, #29323c 0%, #485563 100%); /* Gradien latar belakang tombol */
+  --button-text-color: #fff; /* Warna teks tombol */
+  --form-bg-color: #fff; /* Warna latar belakang form */
+  --input-bg-color: #f1f1f1; /* Warna latar belakang input */
+  --input-border-color: #ddd; /* Warna border input */
+  --icon-color: #000000; /* Warna ikon */
+  --li-map: rgb(212, 212, 212); /* Warna elemen map dalam footer */
+  --footer-a: #fff; /* Warna tautan di footer */
+}
+
+/* Menghilangkan scrollbar pada elemen dengan webkit */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Reset margin dan padding untuk semua elemen agar tidak mengikuti default nya  */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Gaya dasar untuk body halaman */
+body {
+  font-family: 'Lateef', Arial, sans-serif; /* Font utama untuk halaman */
+}
+
+/* Gaya header */
+header {
+  background: rgb(0, 0, 36); /* Warna latar belakang fallback */
+  background: linear-gradient(90deg, rgba(0, 0, 36, 1) 0%, rgba(0, 51, 102, 1) 50%, rgba(0, 102, 153, 1) 100%); /* Gradien latar belakang */
+  border-radius: 8px; /* Membulatkan sudut header */
+  color: #e9e8e8; /* Warna teks di header */
+  padding: 0.5rem; /* Padding header */
+  display: flex;
+  justify-content: space-between; /* Menyusun elemen secara horizontal */
+  align-items: center; /* Menyusun elemen secara vertikal */
+}
+
+/* Gaya logo */
+.logo img {
+  width: 7rem; /* Ukuran logo */
+  margin-right: 20px;
+  margin-left: 30px;
+}
+
+/* Gaya navigasi */
+nav ul {
+  list-style: none; /* Menghilangkan bullet point */
+  display: flex; /* Menyusun item menu secara horizontal */
+}
+
+nav ul li a {
+  color: #fff; /* Warna teks tautan navigasi */
+  display: inline-block; /* Menampilkan tautan sebagai inline block */
+  font-size: 1.3rem; /* Ukuran font */
+  text-decoration: none; /* Menghilangkan garis bawah */
+  font-weight: bold; /* Menebalkan font */
+  padding: 10px 15px; /* Padding tautan */
+  border-radius: 25px; /* Membulatkan sudut tautan */
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Efek bayangan teks */
+}
+
+/* Efek hover pada tautan navigasi */
+nav ul li a:hover {
+  color: #ffffff; /* Warna teks saat hover */
+  transform: scale(1.18); /* Membesarkan tautan saat hover */
+}
+
+nav ul li a::after {
+  content: '';
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid white; /* Garis bawah saat hover */
+  transform: scaleX(0);
+  transition: transform 0.3s ease; /* Transisi efek hover */
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(0.5); /* Efek transformasi saat hover */
+}
+
+/* Gaya menu samping */
+.tampilan-menu {
+  width: 184px; /* Lebar menu */
+  display: none; /* Sembunyikan menu secara default */
+  right: 0;
+  height: 55%; /* Tinggi menu */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background-image: linear-gradient(to top, #56d5ff 0%, #4ea7f5 100%); /* Gradien latar belakang menu */
+  overflow-x: hidden; /* Menghindari scroll horizontal */
+  transition: 0.5s; /* Transisi tampilan menu */
+  padding-top: 60px; /* Padding atas menu */
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.menu {
+  display: grid;
+  height: 100%;
+  text-align: center;
+  align-items: center; /* Menyusun item secara vertikal */
+}
+
+.menu a.active {
+  background-color: #40514E; /* Warna latar belakang tautan aktif */
+  color: white; /* Warna teks tautan aktif */
+}
+
+.tampilan-menu a {
+  padding: 8px 8px 8px 32px; /* Padding tautan menu */
+  text-decoration: none; /* Menghilangkan garis bawah */
+  font-size: 25px; /* Ukuran font tautan menu */
+  color: #ffffff; /* Warna teks tautan menu */
+  display: block; /* Menampilkan tautan sebagai block */
+  transition: 0.3s; /* Transisi efek hover */
+}
+
+.tampilan-menu a:hover {
+  color: #424242; /* Warna teks saat hover */
+  font-size: 30px; /* Ukuran font saat hover */
+  font-weight: bold; /* Menebalkan font saat hover */
+}
+
+.tampilan-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  font-size: 30px; /* Ukuran font untuk tombol tutup */
+}
+
+.open-btn {
+  display: none; /* Sembunyikan tombol buka secara default */
+}
+
+.open-btn {
+  font-size: 22px; /* Ukuran font untuk tombol buka */
+  cursor: pointer; /* Kursor pointer untuk tombol buka */
+  background-color: #2386d1; /* Warna latar belakang tombol buka */
+  border-radius: 8px; /* Membulatkan sudut tombol buka */
+  color: white; /* Warna teks tombol buka */
+  padding: 10px 15px; /* Padding tombol buka */
+  border: none; /* Menghilangkan border tombol buka */
+}
+
+.open-btn:hover {
+  border-bottom-left-radius: 6px;
+  border-top-right-radius: 6px; /* Membulatkan sudut saat hover */
+}
+
+/* Gaya konten utama */
+.content {
+  display: flex;
+  flex-direction: column; /* Menyusun elemen secara vertikal */
+  align-items: center; /* Menyusun elemen di tengah secara horizontal */
+  gap: 24px; /* Jarak antar elemen */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px; /* Bayangan konten */
+  margin: 80px auto; /* Margin otomatis untuk penataan tengah */
+  background: var(--form-bg-color); /* Warna latar belakang konten */
+}
+
+/* Gaya iframe di konten */
+.content iframe {
+  margin: 10px; /* Margin untuk iframe */
+  height: 540px; /* Tinggi iframe */
+  width: 90%; /* Lebar iframe */
+}
+
+/* Gaya paragraf di konten */
+.content p {
+  text-align: center; /* Menyusun teks di tengah */
+}
+
+/* Gaya slider */
+.sliders {
+  width: 100%; /* Lebar slider */
+  padding-bottom: 23%; /* Padding bawah untuk menjaga aspek rasio */
+  margin-top: 10px; /* Margin atas slider */
+}
+
+.slider {
+  width: 100%; /* Lebar slider individu */
+  height: 50vh; /* Tinggi slider individu */
+}
+
+.slide {
+  height: 80vh; /* Tinggi slide */
+  margin: 8px 10px; /* Margin slide */
+}
+
+.slide img {
+  width: 100%; /* Lebar gambar */
+  height: 100vh; /* Tinggi gambar */
+  object-fit: cover; /* Memastikan gambar menutupi area */
+}
+
+/* Gaya footer */
+footer {
+  color: rgb(255, 255, 255); /* Warna teks di footer */
+  font-size: 16px; /* Ukuran font di footer */
+  position: relative;
+  background: rgb(0, 0, 36); /* Warna latar belakang fallback */
+  background: linear-gradient(90deg, rgba(0, 0, 36, 1) 0%, rgba(0, 51, 102, 1) 50%, rgba(0, 102, 153, 1) 100%); /* Gradien latar belakang */
+  padding: 20px 0px; /* Padding footer */
+}
+
+/* Gaya container footer */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap; /* Membungkus item footer */
+  justify-content: space-between; /* Menyusun item secara horizontal */
+  max-width: 1200px; /* Lebar maksimal container */
+  margin: 0px auto; /* Margin otomatis untuk penataan tengah */
+  padding: 0px 20px; /* Padding container */
+}
+
+/* Gaya section di footer */
+.footer-section {
+  flex: 1 1 250px; /* Flex item dengan lebar minimal 250px */
+  margin: 10px 20px; /* Margin section footer */
+}
+
+/* Gaya logo di footer */
+.footer-logo {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  align-items: center; /* Menyusun logo di tengah */
+}
+
+/* Gaya logo section di footer */
+.logo-section {
+  display: flex;
+  flex-direction: column; /* Menyusun item secara vertikal */
+  align-items: center; /* Menyusun item di tengah secara horizontal */
+}
+
+.footer-logo {
+  width: 120px; /* Lebar logo */
+  height: 120px; /* Tinggi logo */
+  object-fit: contain; /* Memastikan logo fit dengan proporsi */
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+/* Gaya elemen di footer section */
+.footer-section p, .footer-section address, .footer-section ul, .footer-section li {
+  font-size: 14px; /* Ukuran font */
+  list-style: none; /* Menghilangkan bullet point */
+  margin: 5px 0px; /* Margin elemen */
+}
+
+/* Gaya teks di logo section */
+.logo-section p {
+  text-align: center; /* Menyusun teks di tengah */
+}
+
+/* Gaya heading di footer section */
+.footer-section h3 {
+  margin-bottom: 15px; /* Margin bawah heading */
+}
+
+/* Gaya address di footer section */
+.footer-section address {
+  line-height: 1.5; /* Jarak baris address */
+}
+
+/* Gaya tautan di footer section */
+.footer-section a {
+  color: #fff; /* Warna teks tautan */
+  text-decoration: none; /* Menghilangkan garis bawah */
+}
+
+/* Gaya daftar social section */
+.social-section ul {
+  display: flex;
+  flex-direction: column; /* Menyusun item sosial secara vertikal */
+}
+
+/* Gaya footer bottom */
+.footer-bottom {
+  text-align: center; /* Menyusun teks di tengah */
+  font-size: 17px; /* Ukuran font di footer bottom */
+  padding: 25px 0px; /* Padding footer bottom */
+  background: rgb(0, 0, 36); /* Warna latar belakang fallback */
+  background: linear-gradient(90deg, rgba(0, 0, 36, 1) 0%, rgba(0, 51, 102, 1) 50%, rgba(0, 102, 153, 1) 100%); /* Gradien latar belakang */
+}
+
+/* Gaya deskripsi */
+.description {
+  font-size: 24px; /* Ukuran font deskripsi */
+}
+
+/* Media queries untuk responsivitas */
+
+@media (max-width: 768px) {
+  .content iframe {
+    object-fit: fill; /* Menyesuaikan ukuran iframe */
+    position: relative;
+  }
+
+  .responsive-video {
+    width: 450px; /* Lebar video responsif */
+  }
+
+  .sliders {
+    padding-bottom: 24%; /* Padding bawah untuk slider responsif */
+  }
+
+  .description {
+    font-size: 18px; /* Ukuran font deskripsi responsif */
+  }
+}
+
+@media (max-width: 587px) {
+  .ul-nav {
+    display: none; /* Sembunyikan navigasi default */
+  }
+
+  .open-btn {
+    display: block; /* Tampilkan tombol buka menu */
+  }
+
+  .tampilan-menu {
+    display: flex; /* Tampilkan menu samping */
+  }
+
+  .sliders {
+    padding-bottom: 18%; /* Padding bawah untuk slider responsif */
+  }
+
+  .slide img {
+    height: 65vh; /* Tinggi gambar slide responsif */
+  }
+
+  .content iframe {
+    height: 440px; /* Tinggi iframe responsif */
+  }
+
+  .li-map {
+    display: flex; /* Menyusun item map di footer */
+    justify-content: center; /* Menyusun item map di tengah secara horizontal */
+  }
+
+  footer {
+    text-align: center; /* Menyusun teks footer di tengah */
+  }
+
+  .footer-bottom {
+    font-size: 15px; /* Ukuran font di footer bottom responsif */
+  }
+
+  .description {
+    font-size: 15px; /* Ukuran font deskripsi responsif */
+  }
+}
+
+@media (max-width: 414px) {
+  .tampilan-menu {
+    height: 41.2%; /* Tinggi menu samping responsif */
+  }
+
+  .content iframe {
+    height: 340px; /* Tinggi iframe responsif */
+  }
+}
+
+@media (max-width: 390px) {
+  .tampilan-menu {
+    height: 45.2%; /* Tinggi menu samping responsif */
+  }
+
+  .sliders {
+    padding-bottom: 14%; /* Padding bawah untuk slider responsif */
+  }
+
+  .content iframe {
+    height: 240px; /* Tinggi iframe responsif */
+  }
+}
+
+@media (max-width: 375px) {
+  .tampilan-menu {
+    height: 56.2%; /* Tinggi menu samping responsif */
+  }
+
+  .sliders {
+    padding-bottom: 0px; /* Padding bawah untuk slider responsif */
+  }
+
+  .description {
+    font-size: 12px; /* Ukuran font deskripsi responsif */
+  }
+}
+
+@media (max-width:320px) {
+  .logo img{
+    width: 70px;
+  }
+  .description{
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About My-Qur'an dan Doa Harian</title>
+    <!-- Link ke stylesheet untuk halaman ini -->
+    <link rel="stylesheet" href="about.css" />
+    <!-- Favicon untuk tab browser -->
+    <link rel="shortcut icon" href="../img/aboutLogo.png" />
+    <!-- Link ke ikon dari Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Bagian header dengan logo dan navigasi -->
+    <header>
+      <div class="logo">
+        <img
+          src="../img/logoAb1.png"
+          alt="Logo Al-Qur'an"
+          title="Logo Doa Harian"
+        />
+      </div>
+      <nav>
+        <ul class="ul-nav">
+          <!-- Ikon untuk toggle tema -->
+          <li><i class="bx bx-toggle-left" id="theme-toggle"></i></li>
+          <!-- Daftar menu navigasi utama -->
+          <li><a href="../home/index.html">Home</a></li>
+          <li><a href="../al-qur'an/al-quran.html">Al-Qur'an</a></li>
+          <li><a href="../doa-doa/doa.html">Doa-Doa</a></li>
+        </ul>
+        <!-- Menu samping yang bisa dibuka dan ditutup -->
+        <div id="side-panel" class="tampilan-menu">
+          <a href="javascript:void(0)" class="close-btn">
+            <i class="bx bx-x"></i>
+          </a>
+          <div class="menu">
+            <a href="../home/index.html">Home</a>
+            <a href="../al-qur'an/al-quran.html">Al-Qur'an</a>
+            <a href="../doa-doa/doa.html">Doa-Doa</a>
+          </div>
+        </div>
+        <!-- Tombol untuk membuka menu samping -->
+        <button class="open-btn"><i class="bx bx-menu"></i></button>
+      </nav>
+    </header>
+
+    <!-- Bagian utama halaman -->
+    <main>
+      <section class="content">
+        <!-- Video yang diputar secara otomatis -->
+        <video class="responsive-video" muted loop autoplay>
+          <source src="../video/videoAb.mp4" type="video/mp4" />
+        </video>
+        <!-- Deskripsi aplikasi -->
+        <p class="description">
+          Website My-Qur'an & Doa Harian adalah website komprehensif yang dirancang
+          untuk membantu umat Islam di seluruh dunia untuk membaca,
+          mendengarkan, dan memahami Al-Qur'an dan berbagai Doa. Aplikasi ini
+          menampilkan audio berkualitas, terjemahan, dan navigasi yang ramah
+          pengguna.
+        </p>
+      </section>
+
+      <!-- Bagian untuk feedback pengguna -->
+      <section class="feedback">
+        <h2>Feedback</h2>
+        <p>
+          Silahkan berikan masukan dan kritik anda untuk web ini, semoga kami
+          bisa lebih baik kedepannya.
+        </p>
+        <form id="feedback-form">
+          <!-- Formulir feedback -->
+          <div class="input-container">
+            <i class="bx bx-user"></i>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <i class="bx bx-envelope"></i>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Mail Id"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <i class="bx bx-phone"></i>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="Mobile Number"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Your Feedback"
+              required
+            ></textarea>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+        <!-- Area untuk menampilkan respon dari form -->
+        <div id="form-response" class="form-response"></div>
+      </section>
+    </main>
+
+    <!-- Bagian footer halaman -->
+    <footer>
+      <div class="footer-container">
+        <!-- Bagian footer dengan logo dan deskripsi -->
+        <div class="footer-section logo-section">
+          <img
+            src="../img/logoAb1.png"
+            alt="My-Qur'an Logo"
+            class="footer-logo"
+          />
+          <p>Membumikan Al Quran Menghidupkan Sirah</p>
+        </div>
+        <!-- Bagian kontak -->
+        <div class="footer-section contact-section">
+          <h3>Contact</h3>
+          <address>
+            <li>
+              <i class="bx bx-map"></i>Jl. Dakota No.8A, Sukaraja, Kec. Cicendo,
+              Kota Bandung, Jawa Barat.
+            </li>
+            <li class="li-map">
+              <a
+                href="https://maps.app.goo.gl/FJTccY19QdbdqJT16"
+                target="_blank"
+              >
+                Lihat Peta
+                <span><i class="bx bx-right-arrow-alt"></i></span>
+              </a>
+            </li>
+            <li><i class="bx bxl-whatsapp"></i> +62 858-9075-4138</li>
+            <li><i class="bx bx-envelope"></i> dujanahsr17@gmail.com</li>
+          </address>
+        </div>
+        <!-- Bagian informasi tambahan -->
+        <div class="footer-section info-section">
+          <h3>Informasi</h3>
+          <ul>
+            <li>Tentang Kami</li>
+            <li>Hubungi Kami</li>
+            <li>Berita Terbaru</li>
+            <li>Informasi Web</li>
+          </ul>
+        </div>
+        <!-- Bagian media sosial -->
+        <div class="footer-section social-section">
+          <h3>Media Sosial</h3>
+          <ul>
+            <li>
+              <a href="https://web.facebook.com/syamil098?locale=id_ID">
+                <i class="bx bxl-facebook-circle"></i> Facebook
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/abuxrg_795/">
+                <i class="bx bxl-instagram"></i> Instagram
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiaWQifQ%3D%3D%22%7D">
+                <i class="bx bxl-twitter"></i> Twitter
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/">
+                <i class="bx bxl-youtube"></i> YouTube
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <!-- Bagian copyright footer -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 My-Quran and Doa Harian by Dujanah. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Link ke file JavaScript untuk halaman ini -->
+    <script src="about.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doa-Doa</title>
+  <!-- logo untuk tab browser -->
+  <link rel="shortcut icon" href="../img/logoWebDoa1.png">
+  <link rel="stylesheet" href="doa.css">
+  <!-- link untuk jenis font -->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Kalnia+Glaze:wght@100..700&family=PT+Sans+Narrow:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <!-- link untuk ikon menu dari Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <!-- Bagian Header -->
+  <header>
+    <!-- Logo situs -->
+    <div class="logo">
+      <img src="../img/logoDoa1.png" alt="Logo Al-Qur'an" title="Logo Doa Harian">
+    </div>
+    <!-- Menu navigasi -->
+    <nav>
+      <!-- Daftar menu navigasi utama -->
+      <ul class="ul-nav">
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../al-qur'an/al-quran.html">Al-Qur'an</a></li>
+        <li><a href="../about/about.html">About</a></li>
+      </ul>
+
+      <!-- Panel samping untuk menu tambahan (mobile) -->
+      <div id="side-panel" class="tampilan-menu">
+        <!-- Tombol untuk menutup panel samping -->
+        <a class="close-btn"><i class='bx bx-x'></i></a>
+        <!-- Menu di dalam panel samping -->
+        <div class="menu">
+          <a href="../home/index.html">Home</a>
+          <a href="../al-qur'an/al-quran.html">Al-Qur'an</a>
+          <a href="../about/about.html">About</a>
+        </div>
+      </div>
+      <!-- Tombol untuk membuka panel samping -->
+      <button class="open-btn"><i class='bx bx-menu'></i></button>
+    </nav>
+  </header>
+
+  <!-- Gambar utama halaman -->
+  <div class="image-doa">
+    <img src="../img/doa.image.jpg" alt="gambar orang berdoa">
+  </div>
+  
+  <!-- Kontainer pencarian -->
+  <div>
+    <div class="search-container">
+      <!-- Kotak input pencarian -->
+      <input type="text" id="searchInput" placeholder="Cari Doa Disisni !!!">
+      <!-- Ikon pencarian -->
+      <i class='bx bx-search'></i>
+    </div>
+  </div>
+  
+  <!-- Bagian utama untuk menampilkan data doa -->
+  <main id="list-doa">
+    <!-- Data doa akan ditampilkan di sini -->
+  </main>
+
+  <!-- Bagian footer -->
+  <footer>
+    <div class="footer-bottom">
+      <!-- Informasi hak cipta -->
+      <p>&copy; 2024 Doa Harian by Dujanah. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Menyertakan file JavaScript eksternal -->
+  <script src="doa.js"></script>
+</body>
+</html>
